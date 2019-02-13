@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivateService } from '../shared/activate.service';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-activate-user',
@@ -9,16 +9,17 @@ import { NgForm } from '@angular/forms';
 })
 export class ActivateUserComponent implements OnInit {
 
-  constructor(private ass: ActivateService) { }
+  constructor(private us: UserService) { }
 
   ngOnInit() {
   }
 
   onActivate(form: NgForm){
-    this.ass.activateUser(form.value).subscribe(
+    this.us.activateUser(form.value).subscribe(
       res => console.log(res),
       err => console.log(err)
     );
   }
+
 
 }

@@ -8,13 +8,24 @@ import { UserService } from 'src/app/auth/shared/user.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
+  data: any;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
-  onSignin(form: NgForm){
 
+  onSignin(form: NgForm){
+    console.log(form.value);
+    this.userService.loginUser(form.value)
+    .subscribe(
+      res => {
+        this.data = res;
+        console.log(this.data);
+      },
+      err =>  console.log(err)
+    );
+
+    this.userService.tokenUser(form.value).subscribe();
   }
 
 }

@@ -38,8 +38,8 @@ export class SignnupComponent implements OnInit {
     .subscribe(
       res => {
         this.data = res;
-        this.id = this.data.user_id;
-        console.log(this.id);
+        this.userService.u_id = this.data.user_id;
+        console.log(this.userService.u_id);
       },
       err =>  console.log(err)
     );

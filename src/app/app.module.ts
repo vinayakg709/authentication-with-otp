@@ -11,7 +11,6 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './auth/shared/user.service';
 import { ActivateUserComponent } from './auth/activate-user/activate-user.component';
-import { ActivateService } from './auth/shared/activate.service';
 
 
 @NgModule({
@@ -29,7 +28,7 @@ import { ActivateService } from './auth/shared/activate.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService,ActivateService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
