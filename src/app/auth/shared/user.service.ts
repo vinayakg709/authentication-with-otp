@@ -5,7 +5,7 @@ import { User, loginuser, tokenuser } from "./user.model";
 @Injectable({ providedIn: 'root' })
 export class UserService{
     u_id: number;
-    readonly rootUrl = 'http://aa59e58b.ngrok.io';
+    readonly rootUrl = 'http://314d703b.ngrok.io';
     constructor(private http: HttpClient) { }
 
     registerUser(user: User){
@@ -39,11 +39,10 @@ export class UserService{
 return this.http.post(this.rootUrl + '/api/login/', bod);    
 }
 
-tokenUser(tokenUser: tokenuser){
-    const bod: tokenuser = {
-        username: tokenUser.username,
-        password: tokenUser.password,
-    
+tokenUser(username: string, password: string){
+    const bod = {
+        username: username,
+        password: password,
     }
     console.log(bod);
     
